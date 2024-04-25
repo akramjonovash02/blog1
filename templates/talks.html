@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shirin's Talks</title>
+    <meta name="author" content="Akramjonova Shirin">
+    <meta property="og:site_name" content="Shirin's Blog" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/talks.css">
+    <link rel="shortcut icon" type="image/jpg" href="/static/assets/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <header class="header--title flex align-items-center show-bg">
+        <div class="container">
+            <div class="align-items-center flex">
+                <div class="logo-wrapper">
+                    <a class="logo" href="../templates/home.html">Shirin's Blog</a>
+                </div>
+                <ul class="nav align-items-center">
+                    <li><a class="list-item" href="https://github.com/AkramjonovaSh02">GitHub</a></li>
+                    <li><a class="list-item" href="{% url 'blog' %}">Blog</a></li>
+                    <li><a class="list-item" href="{% url 'talks'%}">Talks</a></li>
+                    <li><a class="list-item" href="https://t.me/+nXuTdMB9Qss3OTYy" target="_blank">Channel</a></li>
+                </ul>
+                <div class="burger-menu">
+                    <div class="bar bar--top"></div>
+                    <div class="bar bar--middle"></div>
+                    <div class="bar bar--bottom"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="section-title">
+        <div class="container">
+            <div class="section-content">
+                <h1>Talks</h1>
+            </div>
+        </div>
+    </section>
+    <section id class="flex align-items-center">
+        <div class="container">
+            <div class="row justify-between align-top">
+                <div id="archive" class="col-md-7">
+                    <ul class="list-wrapper talks">
+                        {% for talk in talks %}
+                        <li>
+                            <div>
+                                <img class="thumbnail" src="{{ talk.photo.url }}"
+                                    width="150">
+                            </div>
+                            <a class="list-item" href="{{talk.url}}" target="_blank">
+                                <div class="date">{{talk.date}}</div>
+                                <div class="title">talk.title</div>
+                                <div> &nbsp; </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="subscribe-form  col-md-4 sticky " id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form">
+                    <h6>Obuna Bo'ling</h6>
+                    <p>
+                        Yangi maqola, maruza va darslarimni <a href="https://t.me/+nXuTdMB9Qss3OTYy">Ak_Shirin Portfolio</a>
+                        telegram kanalimda topishingiz mumkin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <p>
+                    &copy; 2024 azimjon.com
+                </p>
+            </div>
+        </div>
+    </footer>
+   
+</body>
+
+</html>
