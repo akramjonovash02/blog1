@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.as_view(), name='home'),
     path('blog/', BlogView.as_view(), name='blog'),
+    path('blog/<int:pk>/maqola', MaqolaView.as_view(), name='maqola'),
     path('about/', About.as_view(), name='about'),
     path('talks', TalksView.as_view(), name='talks'),
     path('blog/<int:blog_id>/', MaqolaView.as_view(), name='maqola')

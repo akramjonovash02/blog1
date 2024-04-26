@@ -10,15 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <h1>{{blog.date}}</h1>
-        <div class="row">
-            <div class="col-12">
-                <img src="{{ blog.photo.url }}" alt="">
-                <p>{{ blog.text }}</p>
-            </div>
+    <h1>{{ maqola.date.year }} {{ month }}</h1>
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ maqola.title}}</h2>
+            {% if maqola.photo %}
+                <img src="{{ maqola.photo.url }}" alt="">
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <p>{{ maqola.text}}</p>
+        </div>
         </div>
         <div class="row footer">
-            <p>© 2024</p>
+            <p>© 2024 shirin.com</p>
         </div>
     </div>
 </body>

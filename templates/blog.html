@@ -14,8 +14,8 @@
         <div class="row navbar">
             <div class="col-12 col-md-6 col-sm-6 navbar-icon"><a href="{% url 'home'%}">Shirin's Blog</a></div>
             <div class="col-12 col-md-6 col-sm-6 navbar-link">
-                <div><a href="./about.html">About</a></div>
-                <div><a href="./blog.html">Blog</a></div>
+                <div><a href="{% url 'about'%}">About</a></div>
+                <div><a href="{% url 'blog'%}">Blog</a></div>
                 <div><a href="https://t.me/+nXuTdMB9Qss3OTYy">Telegram</a></div>
                 <div><a href="https://github.com/AkramjonovaSh02">GitHub</a></div>
             </div>
@@ -27,13 +27,13 @@
         </div>
         <div class="row main">
             <div class="col-12 col-md-6 col-sm-6 main-card1">
-              {% for year, months_info in blogs_by_year_month.items %}
+           {% for year, months_info in blogs_by_year_month.items %}
                 <h3>{{ year }}</h3>
                 {% for month, blogs_info in months_info.items %}
-                    <h4>{{ month }}</h4>
+                    <h4>{{ blogs_info.month }}</h4>
                     {% for blog in blogs_info.blogs %}
                         <div class="main-card1-link">
-                            <a href="{% url 'maqola' blog_id=blog.id %}">
+                            <a href="/blog/{{ blog.id }}/maqola">
                                 <h6>{{ blog.date }}</h6>
                                 <h5>{{ blog.title }}</h5>
                             </a>
@@ -41,7 +41,6 @@
                     {% endfor %}
                 {% endfor %}
             {% endfor %}
-
             <div class="col-12 col-md-6 col-sm-6 main-card2">
                 <h4>NEWSLETTER</h4>
                 <p>Subscribe to <a href="#">@codialuz</a> telegram channel where I share interesting & useful stuff.</p>
